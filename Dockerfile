@@ -17,7 +17,7 @@ ARG PROTOBUF_VERSION=3.21.5
 ARG WORKER_USER=1337
 ARG WORKER_GROUP=1337
 
-RUN apk add --update --no-cache bash less \
+RUN apk add --update --no-cache gcompat bash less \
 && install-php-extensions \
     pcntl sockets \
     grpc-${GRPC_VERSION} \
