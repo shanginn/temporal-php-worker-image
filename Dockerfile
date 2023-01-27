@@ -1,4 +1,4 @@
-ARG RR_VERSION=2.10.1
+ARG RR_VERSION=2.12.2
 ARG PHP_VERSION=8.1
 ARG COMPOSER_VERSION=latest
 
@@ -12,16 +12,14 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
-ARG XDEBUG_VERSION=3.1.3
-ARG GRPC_VERSION=1.45.0
-ARG PROTOBUF_VERSION=3.20.1
+ARG GRPC_VERSION=1.48.0
+ARG PROTOBUF_VERSION=3.21.5
 ARG WORKER_USER=1337
 ARG WORKER_GROUP=1337
 
 RUN apk add --update --no-cache bash less \
 && install-php-extensions \
     pcntl sockets \
-    xdebug-${XDEBUG_VERSION} \
     grpc-${GRPC_VERSION} \
     protobuf-${PROTOBUF_VERSION}
 
